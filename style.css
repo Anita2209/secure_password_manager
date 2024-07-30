@@ -1,0 +1,359 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.dark-theme {
+    background: linear-gradient(to right, #333, #666);
+    color: #fff;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+    overflow: auto;
+}
+
+body.dark-theme .container {
+    background-color: #444;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+body.dark-theme h2 {
+    color: #fff;
+}
+
+.result {
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+body.dark-theme .result {
+    background-color: #555;
+}
+
+.result-text {
+    display: block;
+    font-size: 1.5rem;
+    color: #333;
+    word-break: break-all;
+}
+
+body.dark-theme .result-text {
+    color: #fff;
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.btn {
+    background: none;
+    border: 2px solid #333;
+    color: #333;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 5px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-theme .btn {
+    border-color: #fff;
+    color: #fff;
+}
+
+body.dark-theme .btn:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+.set {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+input[type="number"] {
+    width: 60px;
+}
+
+.btn-large {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-large:hover {
+    background-color: #555;
+}
+
+body.dark-theme .btn-large {
+    background-color: #555;
+}
+
+body.dark-theme .btn-large:hover {
+    background-color: #777;
+}
+
+.strength-meter {
+    margin-top: 20px;
+    height: 12px;
+    width: 100%;
+    background: linear-gradient(to right, #e0e0e0, #f0f0f0);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+
+body.dark-theme .strength-meter {
+    background: linear-gradient(to right, #666, #444);
+}
+
+.strength-bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(to right, #ff0000, #00ff00);
+    border-radius: 6px;
+    transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+body.dark-theme .strength-bar {
+    background: linear-gradient(to right, #00ff00, #006400);
+}
+
+.strength-feedback {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+body.dark-theme .strength-feedback {
+    color: #fff;
+}
+
+#toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    font-size: 14px;
+}
+
+body.dark-theme #toast {
+    background: rgba(255, 255, 255, 0.8);
+    color: #000;
+}
+
+.saved-details {
+    text-align: left;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.saved-details .password-entry {
+    padding: 10px;
+    border-radius: 5px;
+    background: #f4f4f4;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.saved-details .password-entry:hover {
+    background-color: #ddd;
+}
+
+body.dark-theme .saved-details .password-entry {
+    background: #e0c4c4;
+    color: #fff;
+}
+
+.saved-details .password-entry .details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.theme-switcher {
+    margin-top: 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+
+.round {
+    border-radius: 34px;
+}
+
+.round:before {
+    border-radius: 50%;
+}
+
+/* Container for saved passwords */
+.saved-passwords {
+    max-height: 300px; /* Adjust height as needed */
+    overflow-y: auto; /* Scroll if content overflows */
+    margin-top: 20px;
+}
+
+/* Individual password entry styling */
+.password-entry {
+    display: flex; /* Use flexbox for horizontal layout */
+    padding: 10px;
+    border: 1px solid #ddd; /* Border for separation */
+    border-radius: 5px; /* Rounded corners */
+    background: #f4f4f4;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+    margin-bottom: 10px; /* Space between entries */
+}
+
+/* Hover effect */
+.password-entry:hover {
+    background-color: #e0e0e0;
+    box-shadow: 0 4px 8px rgba(160, 83, 83, 0.1);
+}
+
+body.dark-theme .password-entry {
+    background: #555;
+    color: #fff;
+}
+
+body.dark-theme .password-entry:hover {
+    background-color: #d37575;
+}
+
+/* Flex container for details */
+.password-entry .details {
+    display: flex;
+    width: 100%; /* Full width of the container */
+    justify-content: space-between; /* Space out the items evenly */
+}
+
+/* Styling for each detail */
+.password-entry .details span {
+    flex: 1; /* Flex-grow to allow equal spacing */
+    text-align: center; /* Center-align text */
+    font-size: 15px; /* Adjust font size */
+    color: #fd0000; /* Text color */
+}
+
+/* Ensure proper spacing for the last element */
+.password-entry .details span:last-child {
+    margin-right: 0;
+}
+
+/* Add this for better alignment */
+.password-entry .details span:nth-child(1) {
+    text-align: left;
+}
+
+.password-entry .details span:nth-child(2) {
+    text-align: center;
+}
+
+.password-entry .details span:nth-child(3) {
+    text-align: right;
+}
+.form-group {
+    margin-bottom: 10px;
+}
