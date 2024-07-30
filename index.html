@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Password Manager</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Password Generator & Manager</h2>
+
+        <!-- Password Generator Section -->
+        <div class="section password-generator">
+            <h3>Generate a Random Password</h3>
+            <div class="result">
+                <span class="result-text" id="result22"></span>
+                <div class="button-group">
+                    <button class="btn" id="clipboard" title="Copy to clipboard">
+                        <i class="fa-solid fa-copy"></i>
+                    </button>
+                    <button class="btn" id="toggleVisibility" title="Toggle visibility">
+                        <i class="fa-solid fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="settings">
+                <div class="set">
+                    <label for="length">Password length</label>
+                    <input type="number" id="length" min="5" max="30" value="5" />
+                </div>
+                <div class="set">
+                    <label for="uppercase">Include uppercase</label>
+                    <input type="checkbox" id="uppercase" unchecked />
+                </div>
+                <div class="set">
+                    <label for="lowercase">Include lowercase</label>
+                    <input type="checkbox" id="lowercase" unchecked />
+                </div>
+                <div class="set">
+                    <label for="symbols">Include symbols</label>
+                    <input type="checkbox" id="symbols" unchecked />
+                </div>
+                <div class="set">
+                    <label for="numbers">Include numbers</label>
+                    <input type="checkbox" id="numbers" unchecked />
+                </div>
+            </div>
+            <button class="btn btn-large" id="generator">Generate Password</button>
+            <div class="strength-meter">
+                <div class="strength-bar" id="strength-bar"></div>
+            </div>
+            <div class="strength-feedback" id="strength-feedback"></div>
+        </div>
+
+        <!-- Password Manager Section -->
+        <div class="section password-manager">
+            <h3>Password Manager</h3>
+            <div class="manager">
+                <div class="form-group">
+                    <label for="appName">App Name:</label>
+                    <input type="text" id="appName" />
+                </div>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" />
+                </div>
+                <div class="form-group">
+                    <label for="passwordValue">Password:</label>
+                    <input type="text" id="passwordValue" />
+                </div>
+                <button class="btn btn-large" id="savePassword">Save Password</button>
+                <button class="btn btn-large" id="showSavedDetails">Details Saved</button>
+            </div>
+            <div class="saved-passwords"> 
+                <div class="saved-details" id="savedDetails"></div>
+            </div>
+        </div>
+
+        <!-- Theme Switcher -->
+        <div class="theme-switcher">
+            <span>Light</span>
+            <label class="switch">
+                <input type="checkbox" id="themeSwitcher">
+                <span class="slider round"></span>
+            </label>
+            <span>Dark</span>
+        </div>
+    </div>
+
+    <div id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
